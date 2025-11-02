@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ISM
+﻿namespace ISM
 {
     public class inventory
     {
@@ -32,5 +26,32 @@ namespace ISM
             return allProducts;
         }
 
+        private Product? SearchProduct(string name)
+        {
+            
+            foreach (Product product in products)
+            {
+                if(product.Name == name)
+                {
+                    return product;
+                }
+                    
+            }
+
+            return null;
+        }
+
+        public void EditProduct(string currentName,  string name, decimal price, int quantity)
+        {
+            Product? getProduct = SearchProduct(currentName);
+            if (getProduct!= null)
+            {
+                getProduct.Name = name;
+                getProduct.Price = price;
+                getProduct.Quantity = quantity;
+            }
+        }
+
+        
     };
 }
