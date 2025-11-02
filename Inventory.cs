@@ -26,7 +26,7 @@
             return allProducts;
         }
 
-        private Product? SearchProduct(string name)
+        public Product? SearchProduct(string name)
         {
             
             foreach (Product product in products)
@@ -34,8 +34,7 @@
                 if(product.Name == name)
                 {
                     return product;
-                }
-                    
+                } 
             }
 
             return null;
@@ -52,6 +51,15 @@
             }
         }
 
-        
+        public void DeleteProduct (string name)
+        {
+            Product? product = SearchProduct(name);
+            if(product!=null)
+            {
+                products.Remove(product);
+            }
+        }
+
+
     };
 }
